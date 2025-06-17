@@ -19,7 +19,7 @@ const setCityMiddleware = (req, res, next) => {
     next();
 };
 
-// Rotas da Aplicação
+// Rotas da AplicaÃ§Ã£o
 app.use('/api/config', configRoutes);
 app.use('/api/households', setCityMiddleware, householdRoutes);
 app.use('/api', authRoutes);

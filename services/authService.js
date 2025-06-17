@@ -1,11 +1,21 @@
-import users from '../data/mockUsers.json' with { type: 'json' };
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Constrói o caminho absoluto para o arquivo JSON de forma segura
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const usersPath = path.join(__dirname, '..', 'data', 'mockUsers.json');
+const users = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
 
 const login = (cpf, password) => {
     const user = users.find(u => u.cpf === cpf && u.password === password);
     if (!user) {
         throw new Error('Invalid credentials');
     }
-    return { id: user.id, name: user.name, role: user.role };
+    // Boa prática: não retorne a senha na resposta da API
+    const { password: _, ...userWithoutPassword } = user;
+    return userWithoutPassword;
 };
 
 const requestPasswordReset = (identifier) => {

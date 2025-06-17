@@ -8,6 +8,8 @@ const login = (req, res) => {
         if (user) {
             const { password, ...userWithoutPassword } = user;
             res.json({ token: 'mock-jwt-token', user: userWithoutPassword });
+			res.status(200).json({ message: 'Endpoint de login alcançado com sucesso!' });
+
         } else {
             res.status(401).json({ message: 'Invalid credentials' });
         }
