@@ -1,0 +1,23 @@
+[
+  {
+    "cpf": "1",
+    "password": "1",
+    "name": "Igor (ACS)",
+    "email": "igor@email.com",
+    "phone": "99999999999"
+  },
+  {
+    "cpf": "222.222.222-22",
+    "password": "password456",
+    "name": "Maria Oliveira (ACS)",
+    "email": "maria.acs@email.com",
+    "phone": "88888888888"
+  },
+  {
+    "cpf": "123",
+    "password": "123",
+    "name": "Igor Tamuz",
+    "email": "igortamuz@gmail.com",
+    "phone": "99999045111"
+  }
+]

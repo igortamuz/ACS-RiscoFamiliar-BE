@@ -1,0 +1,747 @@
+[
+  {
+    "id": "domicilio-cwb-1",
+    "responsibleName": "João Carlos Schmidt",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1985-04-10",
+    "contactPhone": "41 99988-7766",
+    "homePhone": "41 3344-5566",
+    "hasElectricity": "Sim",
+    "pets": [{ "name": "cachorro", "count": 1 }],
+    "streetName": "Rua da Cidadania",
+    "houseNumber": "bl 10 apt 101",
+    "neighborhood": "Boqueirão",
+    "zipCode": "81670-000",
+    "location": "-25.509876, -49.234567",
+    "numberOfResidents": 3,
+    "numComodos": 6,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-06-10T11:00:00.000Z",
+    "createdAt": "2022-01-20T10:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "maiorDe70Anos": 1,
+      "diabetesMellitus": 1
+    },
+    "members": [
+      {
+        "id": "mem-cwb-1",
+        "name": "João Carlos Schmidt",
+        "dob": "1985-04-10",
+        "gender": "Homem Cis",
+        "phone": "41999887766",
+        "cns": "704801234567890",
+        "healthConditions": ""
+      },
+      {
+        "id": "mem-cwb-2",
+        "name": "Helga Schmidt (Mãe)",
+        "dob": "1950-10-20",
+        "gender": "Mulher Cis",
+        "phone": "",
+        "cns": "704801234561234",
+        "healthConditions": "Diabetes, 74 anos"
+      },
+      {
+        "id": "mem-cwb-3",
+        "name": "Pedro Schmidt (Filho)",
+        "dob": "2015-01-30",
+        "gender": "Homem Cis",
+        "phone": "",
+        "cns": "704801234565678",
+        "healthConditions": ""
+      }
+    ],
+    "memberNotes": [
+      {
+        "id": "note-cwb-1-1",
+        "memberName": "Helga Schmidt (Mãe)",
+        "note": "Controle do diabetes está bom. Sigue as orientações da nutricionista.",
+        "files": [],
+        "createdAt": "2025-06-10T11:05:00Z",
+        "createdBy": "Juliana (ACS)"
+      }
+    ],
+    "visits": [
+      {
+        "id": "vis-cwb-1-1",
+        "scheduledDate": "2025-06-10T10:00:00Z",
+        "status": "Realizada",
+        "notes": "Visita de rotina para acompanhamento de diabetes.",
+        "createdAt": "2025-06-10T11:00:00Z",
+        "createdBy": "Juliana (ACS)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2022-01-20T10:00:00.000Z",
+        "change": "Domicílio cadastrado no sistema.",
+        "changedBy": "Juliana (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-cwb-2",
+    "responsibleName": "Valdirene de Fátima",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1978-02-14",
+    "contactPhone": "41 98765-4321",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Avenida República Argentina",
+    "houseNumber": "3033",
+    "neighborhood": "Portão",
+    "zipCode": "80610-260",
+    "location": "-25.474678, -49.292345",
+    "numberOfResidents": 3,
+    "numComodos": 4,
+    "status": "Cadastro Duplicado",
+    "lastUpdatedAt": "2023-05-05T05:55:55.000Z",
+    "createdAt": "2021-03-15T12:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "drogadiccao": 1,
+      "deficienciaMental": 2
+    },
+    "members": [
+      {
+        "id": "mem-cwb-4",
+        "name": "Valdirene de Fátima",
+        "dob": "1978-02-14",
+        "cns": "211234567890123",
+        "healthConditions": "Esquizofrenia"
+      },
+      {
+        "id": "mem-cwb-5",
+        "name": "Cleiton Rasta (filho)",
+        "dob": "1999-11-20",
+        "cns": "211234567890456",
+        "healthConditions": "Usuário de crack, Esquizofrenia"
+      },
+      {
+        "id": "mem-cwb-6",
+        "name": "Jessica (filha)",
+        "dob": "2002-05-01",
+        "cns": "211234567890789",
+        "healthConditions": "Depressão"
+      }
+    ],
+    "memberNotes": [
+      {
+        "id": "note-cwb-2-1",
+        "note": "Este cadastro parece ser um duplicado do ID 'domicilio-cwb-28'. Verificar com a gestão.",
+        "files": [],
+        "createdAt": "2023-05-05T05:55:55.000Z",
+        "createdBy": "Sistema"
+      }
+    ],
+    "visits": [],
+    "history": [
+      {
+        "date": "2023-05-05T05:55:55.000Z",
+        "change": "Sistema marcou como possível duplicata.",
+        "changedBy": "Sistema",
+        "changeType": "Alterado"
+      },
+      {
+        "date": "2021-03-15T12:00:00.000Z",
+        "change": "Cadastro inicial.",
+        "changedBy": "Juliana (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-cwb-3",
+    "responsibleName": "Jean Pierre Dubois",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1995-03-10",
+    "contactPhone": "+33 6 12 34 56 78",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Alameda Dr. Muricy",
+    "houseNumber": "500",
+    "neighborhood": "Centro",
+    "zipCode": "80020-040",
+    "location": "-25.430987, -49.271234",
+    "numberOfResidents": 2,
+    "numComodos": 3,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-06-13T23:55:00.000Z",
+    "createdAt": "2025-02-01T18:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "desemprego": 2,
+      "analfabetismo": 2
+    },
+    "members": [
+      {
+        "id": "mem-cwb-7",
+        "name": "Jean Pierre Dubois",
+        "dob": "1995-03-10",
+        "cns": "",
+        "healthConditions": "Imigrante, barreira linguística, Desempregado, Analfabeto em Português"
+      },
+      {
+        "id": "mem-cwb-8",
+        "name": "Juliette Dubois",
+        "dob": "1996-05-20",
+        "cns": "",
+        "healthConditions": "Imigrante, barreira linguística, Desempregada, Analfabeta em Português"
+      }
+    ],
+    "memberNotes": [
+      {
+        "id": "note-cwb-3-1",
+        "note": "Família de refugiados haitianos. Necessitam de tradutor para comunicação efetiva. Encaminhados para serviço social.",
+        "createdAt": "2025-06-13T23:55:00.000Z",
+        "createdBy": "Maria Oliveira (ACS)"
+      }
+    ],
+    "visits": [
+      {
+        "id": "vis-cwb-3-1",
+        "scheduledDate": "2025-07-10T14:00:00Z",
+        "status": "Agendada",
+        "notes": "Visita com assistente social para auxílio com documentação e emprego.",
+        "createdAt": "2025-06-14T00:00:00Z",
+        "createdBy": "Maria Oliveira (ACS)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2025-02-01T18:00:00.000Z",
+        "change": "Cadastro de família imigrante.",
+        "changedBy": "Maria Oliveira (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-cwb-4",
+    "responsibleName": "Família Kowalski",
+    "responsibleGender": "Coletivo",
+    "responsibleDob": "1950-01-01",
+    "contactPhone": "41 99655-5566",
+    "homePhone": "41 3222-2233",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Mateus Leme",
+    "houseNumber": "1000",
+    "neighborhood": "São Francisco",
+    "zipCode": "80520-174",
+    "location": "-25.412345, -49.276543",
+    "numberOfResidents": 6,
+    "numComodos": 4,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2024-12-25T12:00:00.000Z",
+    "createdAt": "2019-01-01T12:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "acamado": 1,
+      "maiorDe70Anos": 2,
+      "hipertensaoArterial": 2,
+      "diabetesMellitus": 1,
+      "deficienciaMental": 1
+    },
+    "members": [],
+    "memberNotes": [
+      {
+        "id": "note-cwb-4-1",
+        "memberName": "Stanislaw Kowalski",
+        "note": "Idoso acamado necessitando de cuidados contínuos. Família sobrecarregada.",
+        "createdAt": "2024-12-20T10:00:00Z",
+        "createdBy": "Juliana (ACS)"
+      }
+    ],
+    "visits": [
+      {
+        "id": "vis-cwb-4-1",
+        "scheduledDate": "2025-01-15T10:00:00Z",
+        "status": "Agendada",
+        "notes": "Visita domiciliar da equipe de enfermagem para curativos.",
+        "createdAt": "2024-12-25T12:05:00Z",
+        "createdBy": "Juliana (ACS)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2024-11-01T10:00:00.000Z",
+        "change": "Sentinela 'acamado' adicionada para Stanislaw.",
+        "changedBy": "Juliana (ACS)",
+        "changeType": "Adicionado"
+      },
+      {
+        "date": "2019-01-01T12:00:00.000Z",
+        "change": "Domicílio cadastrado.",
+        "changedBy": "Juliana (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-cwb-5",
+    "responsibleName": "Cleber Machado",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1965-01-15",
+    "contactPhone": "41988888888",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Avenida Victor Ferreira do Amaral",
+    "houseNumber": "2000",
+    "neighborhood": "Tarumã",
+    "zipCode": "82810-350",
+    "location": "-25.421234, -49.218765",
+    "numberOfResidents": 1,
+    "numComodos": 5,
+    "status": "Pendente",
+    "lastUpdatedAt": "2025-03-20T10:00:00.000Z",
+    "createdAt": "2025-03-20T10:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "hipertensaoArterial": 1,
+      "diabetesMellitus": 1,
+      "drogadiccao": 1
+    },
+    "members": [
+      {
+        "id": "mem-cwb-10",
+        "name": "Cleber Machado",
+        "dob": "1965-01-15",
+        "cns": "Nao possui",
+        "healthConditions": "Hipertenso, Diabético, Tabagista"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": [
+      {
+        "date": "2025-03-20T10:00:00.000Z",
+        "change": "Cadastro novo, pendente de primeira visita completa.",
+        "changedBy": "Carlos Andrade (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-cwb-6",
+    "responsibleName": "Lima Duarte",
+    "responsibleGender": "Coletivo",
+    "responsibleDob": "1930-03-29",
+    "contactPhone": "",
+    "homePhone": "",
+    "hasElectricity": "Não",
+    "pets": [],
+    "streetName": "Rua sem nome",
+    "houseNumber": "Barraco 3",
+    "neighborhood": "Tatuquara",
+    "zipCode": "",
+    "location": "-25.567890, -49.334567",
+    "numberOfResidents": 8,
+    "numComodos": 1,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-06-13T15:00:00.000Z",
+    "createdAt": "2025-06-13T15:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "baixasCondicoesSaneamento": 1,
+      "desemprego": 3,
+      "analfabetismo": 2,
+      "desnutricaoGrave": 3
+    },
+    "members": [],
+    "memberNotes": [
+      {
+        "id": "note-cwb-6-1",
+        "memberName": "Geral",
+        "note": "Família em extrema vulnerabilidade. Ação conjunta com CRAS e conselho tutelar em andamento.",
+        "createdAt": "2025-06-13T15:00:00.000Z",
+        "createdBy": "Ana Lima (Enfermeira)"
+      }
+    ],
+    "visits": [],
+    "history": [
+      {
+        "date": "2025-06-13T15:00:00.000Z",
+        "change": "Cadastro de domicílio em área de ocupação irregular.",
+        "changedBy": "Ana Lima (Enfermeira)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-cwb-7",
+    "responsibleName": "Gisele Bündchen",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1980-07-20",
+    "contactPhone": "41 99123-1234",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Professor Pedro Viriato Parigot de Souza",
+    "houseNumber": "5300",
+    "neighborhood": "Ecoville",
+    "zipCode": "81280-330",
+    "location": "-25.441234, -49.334567",
+    "numberOfResidents": 4,
+    "numComodos": 15,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-06-01T12:00:00.000Z",
+    "createdAt": "2020-07-20T12:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-8",
+    "responsibleName": "Neymar Jr.",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1992-02-05",
+    "contactPhone": "41 98765-1010",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Avenida Batel",
+    "houseNumber": "1868",
+    "neighborhood": "Batel",
+    "zipCode": "80420-090",
+    "location": "-25.445432, -49.291234",
+    "numberOfResidents": 1,
+    "numComodos": 20,
+    "status": "Pendente",
+    "lastUpdatedAt": "2025-02-05T10:00:00.000Z",
+    "createdAt": "2025-02-05T10:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [],
+    "memberNotes": [
+      {
+        "id": "note-cwb-8-1",
+        "note": "Assessor não permitiu a entrada da equipe.",
+        "files": [],
+        "createdAt": "2025-02-05T10:00:00Z",
+        "createdBy": "Juliana (ACS)"
+      }
+    ],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-9",
+    "responsibleName": "Fernanda Montenegro",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1929-10-16",
+    "contactPhone": "41 99888-9988",
+    "homePhone": "41 3030-4040",
+    "hasElectricity": "Sim",
+    "pets": [{ "name": "gato", "count": 2 }],
+    "streetName": "Rua Emiliano Perneta",
+    "houseNumber": "100",
+    "neighborhood": "Centro",
+    "zipCode": "80420-080",
+    "location": "-25.436543, -49.278765",
+    "numberOfResidents": 1,
+    "numComodos": 5,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-01-10T11:30:00.000Z",
+    "createdAt": "2018-09-29T11:30:00.000Z",
+    "coelhoSavassiScaleData": {
+      "maiorDe70Anos": 1,
+      "hipertensaoArterial": 1
+    },
+    "members": [
+      {
+        "id": "mem-cwb-11",
+        "name": "Arlette Pinheiro Esteves da Silva",
+        "dob": "1929-10-16",
+        "cns": "100100100100100",
+        "healthConditions": "95 anos, Hipertensa"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-10",
+    "responsibleName": "Ratinho",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1956-02-15",
+    "contactPhone": "41 98877-6655",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Padre Anchieta",
+    "houseNumber": "2000",
+    "neighborhood": "Bigorrilho",
+    "zipCode": "80730-000",
+    "location": "-25.438765, -49.301234",
+    "numberOfResidents": 2,
+    "numComodos": 10,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-05-18T10:00:00.000Z",
+    "createdAt": "2021-09-18T10:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-11",
+    "responsibleName": "Sérgio dos Santos",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1950-01-01",
+    "contactPhone": "41 99222-1111",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Deputado Heitor Alencar Furtado",
+    "houseNumber": "3000",
+    "neighborhood": "Mossunguê",
+    "zipCode": "81200-520",
+    "location": "-25.439876, -49.321234",
+    "numberOfResidents": 4,
+    "numComodos": 2,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-04-17T09:00:00.000Z",
+    "createdAt": "2019-07-22T09:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "acamado": 1,
+      "deficienciaFisica": 1,
+      "maiorDe70Anos": 2
+    },
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-12",
+    "responsibleName": "Jair Messias",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1955-03-21",
+    "contactPhone": "41 98817-1717",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Avenida Cândido Hartmann",
+    "houseNumber": "1717",
+    "neighborhood": "Mercês",
+    "zipCode": "80710-570",
+    "location": "-25.421234, -49.298765",
+    "numberOfResidents": 2,
+    "numComodos": 6,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-03-21T10:00:00.000Z",
+    "createdAt": "2022-10-22T10:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-13",
+    "responsibleName": "Luiza Inácio",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1945-10-27",
+    "contactPhone": "41 99913-1313",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Doutor Faivre",
+    "houseNumber": "13",
+    "neighborhood": "Centro",
+    "zipCode": "80060-140",
+    "location": "-25.428765, -49.261234",
+    "numberOfResidents": 2,
+    "numComodos": 7,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-01-08T13:00:00.000Z",
+    "createdAt": "2018-04-07T13:00:00.000Z",
+    "coelhoSavassiScaleData": { "maiorDe70Anos": 1 },
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-14",
+    "responsibleName": "Sandy Lima",
+    "responsibleGender": "Coletivo",
+    "responsibleDob": "1983-01-28",
+    "contactPhone": "41 98400-2000",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua da Glória",
+    "houseNumber": "1999",
+    "neighborhood": "Centro Cívico",
+    "zipCode": "80530-110",
+    "location": "-25.419876, -49.268765",
+    "numberOfResidents": 2,
+    "numComodos": 4,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2024-10-12T19:00:00.000Z",
+    "createdAt": "2019-07-12T19:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-15",
+    "responsibleName": "Michel Bastos",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1983-08-02",
+    "contactPhone": "41 99191-8080",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Avenida Sete de Setembro",
+    "houseNumber": "7777",
+    "neighborhood": "Seminário",
+    "zipCode": "80240-001",
+    "location": "-25.451234, -49.295432",
+    "numberOfResidents": 4,
+    "numComodos": 2,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-05-15T15:00:00.000Z",
+    "createdAt": "2018-02-17T15:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "menorDe6Meses": 1,
+      "drogadiccao": 1,
+      "desemprego": 1
+    },
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-16",
+    "responsibleName": "Larissa Oliveira",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1992-03-27",
+    "contactPhone": "41 99887-7665",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [{ "name": "cachorro", "count": 5 }],
+    "streetName": "Rua Comendador Araújo",
+    "houseNumber": "123",
+    "neighborhood": "Batel",
+    "zipCode": "80420-000",
+    "location": "-25.439876, -49.287654",
+    "numberOfResidents": 3,
+    "numComodos": 5,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2024-12-28T10:00:00.000Z",
+    "createdAt": "2023-08-16T10:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-17",
+    "responsibleName": "Antônio Ramos",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1948-11-20",
+    "contactPhone": "41 98877-1111",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Desembargador Motta",
+    "houseNumber": "1948",
+    "neighborhood": "Água Verde",
+    "zipCode": "80250-060",
+    "location": "-25.449876, -49.285432",
+    "numberOfResidents": 2,
+    "numComodos": 7,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-05-21T11:00:00.000Z",
+    "createdAt": "2019-05-21T11:00:00.000Z",
+    "coelhoSavassiScaleData": { "maiorDe70Anos": 2 },
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-18",
+    "responsibleName": "Glória Pires",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1963-08-23",
+    "contactPhone": "41 99111-2222",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Visconde de Nácar",
+    "houseNumber": "1963",
+    "neighborhood": "Mercês",
+    "zipCode": "80410-201",
+    "location": "-25.428765, -49.281234",
+    "numberOfResidents": 4,
+    "numComodos": 6,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-05-23T14:00:00.000Z",
+    "createdAt": "2020-08-23T14:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-19",
+    "responsibleName": "Fábio Jr.",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1953-11-21",
+    "contactPhone": "41 98866-1953",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua 29 de Junho",
+    "houseNumber": "2906",
+    "neighborhood": "Fanny",
+    "zipCode": "81030-220",
+    "location": "-25.481234, -49.281234",
+    "numberOfResidents": 1,
+    "numComodos": 5,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-04-10T19:00:00.000Z",
+    "createdAt": "2021-11-21T19:00:00.000Z",
+    "coelhoSavassiScaleData": { "maiorDe70Anos": 1 },
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-cwb-20",
+    "responsibleName": "Fafá de Belém",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1956-08-09",
+    "contactPhone": "41 99111-1956",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua da Paz",
+    "houseNumber": "1956",
+    "neighborhood": "Jardim Botânico",
+    "zipCode": "80210-230",
+    "location": "-25.441234, -49.241234",
+    "numberOfResidents": 1,
+    "numComodos": 4,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-03-01T18:00:00.000Z",
+    "createdAt": "2022-08-22T18:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  }
+]

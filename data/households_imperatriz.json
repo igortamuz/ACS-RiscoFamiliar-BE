@@ -1,0 +1,1094 @@
+[
+  {
+    "id": "domicilio-itz-1",
+    "responsibleName": "Raimunda Nonata Sousa",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1965-08-15",
+    "contactPhone": "99 98123-1122",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [
+      { "id": 1, "name": "Gato", "count": 1 },
+      { "id": 2, "name": "Cachorro", "count": 2 }
+    ],
+    "streetName": "Rua Tiradentes",
+    "houseNumber": "15A",
+    "neighborhood": "Vila Lobão",
+    "zipCode": "65910-100",
+    "location": "-5.531589, -47.468701",
+    "numberOfResidents": 4,
+    "numComodos": 3,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-05-20T10:00:00.000Z",
+    "createdAt": "2023-02-10T08:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "hipertensaoArterial": 1,
+      "desemprego": 1,
+      "maiorDe70Anos": 1
+    },
+    "members": [
+      {
+        "id": "mem-itz-1",
+        "name": "Raimunda Nonata Sousa",
+        "dob": "1965-08-15",
+        "gender": "Mulher Cis",
+        "phone": "99981231122",
+        "cns": "700509581234567",
+        "healthConditions": "Hipertensão"
+      },
+      {
+        "id": "mem-itz-2",
+        "name": "Francisco das Chagas",
+        "dob": "1963-01-20",
+        "gender": "Homem Cis",
+        "phone": "",
+        "cns": "700509587654321",
+        "healthConditions": "Desempregado"
+      },
+      {
+        "id": "mem-itz-3",
+        "name": "Maria Eduarda Sousa",
+        "dob": "2008-05-10",
+        "gender": "Mulher Cis",
+        "phone": "",
+        "cns": "700509589876543",
+        "healthConditions": ""
+      },
+      {
+        "id": "mem-itz-4",
+        "name": "Antônia de Jesus (Mãe)",
+        "dob": "1940-03-25",
+        "gender": "Mulher Cis",
+        "phone": "",
+        "cns": "700509581122334",
+        "healthConditions": "Idosa"
+      }
+    ],
+    "memberNotes": [
+      {
+        "id": "note-itz-1-1",
+        "memberName": "Raimunda Nonata Sousa",
+        "note": "Paciente refere boa adesão ao tratamento para hipertensão. Aferida PA: 130x85mmHg.",
+        "files": [],
+        "createdAt": "2025-05-20T10:05:00Z",
+        "createdBy": "Carlos Andrade (ACS)"
+      }
+    ],
+    "visits": [
+      {
+        "id": "vis-itz-1-1",
+        "scheduledDate": "2025-05-20T10:00:00Z",
+        "status": "Realizada",
+        "notes": "Visita de rotina para acompanhamento de HAS e situação de desemprego.",
+        "createdAt": "2025-05-20T10:05:00Z",
+        "createdBy": "Carlos Andrade (ACS)"
+      },
+      {
+        "id": "vis-itz-1-2",
+        "scheduledDate": "2025-08-20T10:00:00Z",
+        "status": "Agendada",
+        "notes": "Próxima visita de rotina.",
+        "createdAt": "2025-05-20T10:06:00Z",
+        "createdBy": "Carlos Andrade (ACS)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2024-03-10T08:00:00.000Z",
+        "change": "Sentinela de risco 'Desemprego' foi adicionada.",
+        "changedBy": "Carlos Andrade (ACS)",
+        "changeType": "Adicionado"
+      },
+      {
+        "date": "2023-02-10T08:00:00.000Z",
+        "change": "Domicílio cadastrado no sistema.",
+        "changedBy": "Carlos Andrade (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-2",
+    "responsibleName": "José Ribamar Ferreira",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1980-11-12",
+    "contactPhone": "99 98844-5566",
+    "homePhone": "99 3524-0000",
+    "hasElectricity": "Não",
+    "pets": [],
+    "streetName": "Rua da Mangueira",
+    "houseNumber": "S/N",
+    "neighborhood": "Bacuri",
+    "zipCode": "65916-200",
+    "location": "-5.540123, -47.491456",
+    "numberOfResidents": 5,
+    "numComodos": 2,
+    "status": "Pendente",
+    "lastUpdatedAt": "2025-06-10T10:00:00.000Z",
+    "createdAt": "2024-11-01T09:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "desnutricaoGrave": 2,
+      "baixasCondicoesSaneamento": 1,
+      "menorDe6Meses": 1
+    },
+    "members": [
+      {
+        "id": "mem-itz-5",
+        "name": "José Ribamar Ferreira",
+        "dob": "1980-11-12",
+        "gender": "Homem Cis",
+        "phone": "",
+        "cns": "Não informado",
+        "healthConditions": "Mora em casa com saneamento precário"
+      },
+      {
+        "id": "mem-itz-6",
+        "name": "Carla Dias Ferreira",
+        "dob": "1985-02-22",
+        "gender": "Mulher Cis",
+        "phone": "",
+        "cns": "987000012345678",
+        "healthConditions": ""
+      },
+      {
+        "id": "mem-itz-7",
+        "name": "João Gabriel Ferreira",
+        "dob": "2025-04-10",
+        "gender": "Homem Cis",
+        "phone": "",
+        "cns": "",
+        "healthConditions": "Recém-nascido, desnutrido"
+      },
+      {
+        "id": "mem-itz-8",
+        "name": "Letícia Ferreira",
+        "dob": "2010-07-01",
+        "gender": "Mulher Cis",
+        "phone": "",
+        "cns": "987000054321098",
+        "healthConditions": "Desnutrição grave"
+      },
+      {
+        "id": "mem-itz-9",
+        "name": "Carlos Daniel Ferreira",
+        "dob": "2012-09-15",
+        "gender": "Homem Cis",
+        "phone": "",
+        "cns": "987000087654321",
+        "healthConditions": ""
+      }
+    ],
+    "memberNotes": [
+      {
+        "id": "note-itz-2-1",
+        "memberName": "Letícia Ferreira",
+        "note": "Criança encaminhada para acompanhamento no CRAS e consulta com nutricionista.",
+        "files": [],
+        "createdAt": "2025-06-10T10:00:00Z",
+        "createdBy": "Ana Lima (Enfermeira)"
+      }
+    ],
+    "visits": [
+      {
+        "id": "vis-itz-2-1",
+        "scheduledDate": "2025-07-01T10:00:00Z",
+        "status": "Agendada",
+        "notes": "Visita para verificar ganho de peso das crianças e puerpério de Carla.",
+        "createdAt": "2025-06-10T10:05:00Z",
+        "createdBy": "Ana Lima (Enfermeira)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2025-06-10T09:00:00.000Z",
+        "change": "Sentinela de risco 'Desnutrição Grave' adicionada para 2 membros.",
+        "changedBy": "Ana Lima (Enfermeira)",
+        "changeType": "Adicionado"
+      },
+      {
+        "date": "2024-11-01T09:00:00.000Z",
+        "change": "Domicílio cadastrado. Área de difícil acesso.",
+        "changedBy": "Maria Oliveira (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-3",
+    "responsibleName": "Brenda Azevedo",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1998-12-01",
+    "contactPhone": "99 91111-2222",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Avenida Beira Rio",
+    "houseNumber": "2024",
+    "neighborhood": "Beira Rio",
+    "zipCode": "65900-500",
+    "location": "-5.520100, -47.485432",
+    "numberOfResidents": 1,
+    "numComodos": 2,
+    "status": "Pendente",
+    "lastUpdatedAt": "2025-06-14T12:24:31.000Z",
+    "createdAt": "2022-08-30T14:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "deficienciaMental": 1,
+      "drogadiccao": 1,
+      "desemprego": 1
+    },
+    "members": [
+      {
+        "id": "mem-itz-10",
+        "name": "Brenda Azevedo",
+        "dob": "1998-12-01",
+        "gender": "Mulher Trans",
+        "phone": "99911112222",
+        "cns": "898001234560000",
+        "healthConditions": "Depressão, uso de substâncias, desempregada"
+      }
+    ],
+    "memberNotes": [
+      {
+        "id": "note-itz-3-1",
+        "memberName": "Brenda Azevedo",
+        "note": "Tentativa de visita sem sucesso. Vizinhos informaram que a moradora raramente abre a porta.",
+        "files": [],
+        "createdAt": "2025-06-14T12:24:31.000Z",
+        "createdBy": "Carlos Andrade (ACS)"
+      }
+    ],
+    "visits": [
+      {
+        "id": "vis-itz-3-1",
+        "scheduledDate": "2025-06-14T11:00:00Z",
+        "status": "Não Realizada",
+        "notes": "Moradora não atendeu.",
+        "createdAt": "2025-06-14T12:25:00Z",
+        "createdBy": "Carlos Andrade (ACS)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2025-06-14T12:24:31.000Z",
+        "change": "Status alterado para 'Pendente'.",
+        "changedBy": "Carlos Andrade (ACS)",
+        "changeType": "Alterado"
+      },
+      {
+        "date": "2022-08-30T14:00:00.000Z",
+        "change": "Domicílio cadastrado.",
+        "changedBy": "Sofia Martins (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-4",
+    "responsibleName": "Antônio Conselheiro",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1955-03-10",
+    "contactPhone": "99 98282-8282",
+    "homePhone": "",
+    "hasElectricity": "Desconhecido",
+    "pets": [],
+    "streetName": "Rua Projetada Sete",
+    "houseNumber": "Lote 12, Quadra 15",
+    "neighborhood": "Parque Alvorada",
+    "zipCode": "",
+    "location": "-5.551234, -47.481234",
+    "numberOfResidents": 2,
+    "numComodos": 1,
+    "status": "Cadastro Incompleto",
+    "lastUpdatedAt": "2025-01-10T11:00:00.000Z",
+    "createdAt": "2025-01-10T11:00:00.000Z",
+    "coelhoSavassiScaleData": { "analfabetismo": 2 },
+    "members": [],
+    "memberNotes": [],
+    "visits": [
+      {
+        "id": "vis-itz-4-1",
+        "scheduledDate": "2025-02-01T09:00:00Z",
+        "status": "Agendada",
+        "notes": "Agendada visita para completar o cadastro familiar e avaliar as condições.",
+        "createdAt": "2025-01-10T11:05:00Z",
+        "createdBy": "Maria Oliveira (ACS)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2025-01-10T11:00:00.000Z",
+        "change": "Cadastro inicial do domicílio realizado, porém incompleto.",
+        "changedBy": "Maria Oliveira (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-5",
+    "responsibleName": "Maria da Conceição",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1945-01-10",
+    "contactPhone": "99 99900-0099",
+    "homePhone": "N/A",
+    "hasElectricity": "Sim",
+    "pets": [{ "id": 3, "name": "Cachorro", "count": 1 }],
+    "streetName": "Travessa Brasil",
+    "houseNumber": "404",
+    "neighborhood": "Centro",
+    "zipCode": "65900110",
+    "location": "-5.526789, -47.476543",
+    "numberOfResidents": 2,
+    "numComodos": 4,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-04-15T16:30:00.000Z",
+    "createdAt": "2020-01-01T00:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "maiorDe70Anos": 2,
+      "diabetesMellitus": 1,
+      "deficienciaFisica": 1
+    },
+    "members": [
+      {
+        "id": "mem-itz-11",
+        "name": "Maria da Conceição",
+        "dob": "1945-01-10",
+        "cns": "123123123123123",
+        "healthConditions": "Diabetes, 80 anos"
+      },
+      {
+        "id": "mem-itz-12",
+        "name": "Sebastião Pereira",
+        "dob": "1942-03-12",
+        "cns": "321321321321321",
+        "healthConditions": "Cadeirante, 83 anos"
+      }
+    ],
+    "memberNotes": [
+      {
+        "id": "note-itz-5-1",
+        "memberName": "Sebastião Pereira",
+        "note": "Realizada entrega de fraldas geriátricas. Familiar orientada sobre prevenção de escaras.",
+        "files": [],
+        "createdAt": "2025-04-15T16:30:00Z",
+        "createdBy": "Sofia Martins (ACS)"
+      }
+    ],
+    "visits": [
+      {
+        "id": "vis-itz-5-1",
+        "scheduledDate": "2025-04-15T16:00:00Z",
+        "status": "Realizada",
+        "notes": "Acompanhamento do casal de idosos. Aferida glicemia capilar de Maria (145 mg/dL).",
+        "createdAt": "2025-04-15T16:35:00Z",
+        "createdBy": "Sofia Martins (ACS)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2025-01-10T10:00:00.000Z",
+        "change": "Sentinela 'Deficiência Física' adicionada para Sr. Sebastião.",
+        "changedBy": "Sofia Martins (ACS)",
+        "changeType": "Adicionado"
+      },
+      {
+        "date": "2020-01-01T00:00:00.000Z",
+        "change": "Domicílio importado de sistema anterior.",
+        "changedBy": "Sistema",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-6",
+    "responsibleName": "Karlos da Silva",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1999-07-22",
+    "contactPhone": "99987654321",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Gonçalves Dias",
+    "houseNumber": "1001",
+    "neighborhood": "Juçara",
+    "zipCode": "65900-540",
+    "location": "-5.535432, -47.478910",
+    "numberOfResidents": 1,
+    "numComodos": 3,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-06-13T10:30:00.000Z",
+    "createdAt": "2024-03-03T15:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [
+      {
+        "id": "mem-itz-13",
+        "name": "Karlos da Silva",
+        "dob": "1999-07-22",
+        "cns": "898005012345678",
+        "healthConditions": "Em tratamento"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": [
+      {
+        "date": "2024-03-03T15:00:00.000Z",
+        "change": "Domicílio cadastrado no sistema.",
+        "changedBy": "Carlos Andrade (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-7",
+    "responsibleName": "Francisca de Assis",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1970-04-14",
+    "contactPhone": "99 98111-0000",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Leôncio Pires Dourado",
+    "houseNumber": "800",
+    "neighborhood": "Bacuri",
+    "zipCode": "65916-110",
+    "location": "-5.538765, -47.490123",
+    "numberOfResidents": 3,
+    "numComodos": 3,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-02-01T11:00:00.000Z",
+    "createdAt": "2021-07-19T10:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "analfabetismo": 1,
+      "desemprego": 2
+    },
+    "members": [
+      {
+        "id": "mem-itz-14",
+        "name": "Francisca de Assis",
+        "dob": "1970-04-14",
+        "cns": "700000000000001",
+        "healthConditions": "Analfabeta"
+      },
+      {
+        "id": "mem-itz-15",
+        "name": "Marcos de Assis",
+        "dob": "1990-05-20",
+        "cns": "700000000000002",
+        "healthConditions": "Desempregado"
+      },
+      {
+        "id": "mem-itz-16",
+        "name": "Lucas de Assis",
+        "dob": "2010-06-25",
+        "cns": "700000000000003",
+        "healthConditions": ""
+      }
+    ],
+    "memberNotes": [],
+    "visits": [
+      {
+        "id": "vis-itz-7-1",
+        "scheduledDate": "2025-02-01T10:30:00Z",
+        "status": "Realizada",
+        "notes": "Orientação sobre hanseníase devido a caso na vizinhança. Todos examinados, sem lesões suspeitas.",
+        "createdAt": "2025-02-01T11:00:00Z",
+        "createdBy": "Maria Oliveira (ACS)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2021-07-19T10:00:00.000Z",
+        "change": "Domicílio cadastrado.",
+        "changedBy": "Maria Oliveira (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-8",
+    "responsibleName": "Valdemar da Costa",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1950-01-01",
+    "contactPhone": "",
+    "homePhone": "",
+    "hasElectricity": "Não",
+    "pets": [],
+    "streetName": "Invasão",
+    "houseNumber": "Barraco 12",
+    "neighborhood": "Zona Rural",
+    "zipCode": "",
+    "location": "-5.601234, -47.554321",
+    "numberOfResidents": 9,
+    "numComodos": 2,
+    "status": "Pendente",
+    "lastUpdatedAt": "2025-05-01T07:00:00.000Z",
+    "createdAt": "2025-05-01T07:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "acamado": 1,
+      "desnutricaoGrave": 3,
+      "baixasCondicoesSaneamento": 1
+    },
+    "members": [],
+    "memberNotes": [],
+    "visits": [
+      {
+        "id": "vis-itz-8-1",
+        "scheduledDate": "2025-05-10T09:00:00Z",
+        "status": "Agendada",
+        "notes": "Visita programada com equipe do NASF para avaliação completa da família.",
+        "createdAt": "2025-05-01T08:00:00Z",
+        "createdBy": "Ana Lima (Enfermeira)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2025-05-01T07:00:00.000Z",
+        "change": "Novo domicílio cadastrado em área de alta vulnerabilidade.",
+        "changedBy": "Ana Lima (Enfermeira)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-9",
+    "responsibleName": "Jurema Guajajara",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1955-12-12",
+    "contactPhone": "Não tem",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua do Meio",
+    "houseNumber": "50",
+    "neighborhood": "Centro",
+    "zipCode": "65901-430",
+    "location": "-5.524321, -47.480987",
+    "numberOfResidents": 2,
+    "numComodos": 5,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-03-03T03:33:33.000Z",
+    "createdAt": "2023-01-01T01:01:01.000Z",
+    "coelhoSavassiScaleData": {
+      "analfabetismo": 1,
+      "diabetesMellitus": 1
+    },
+    "members": [
+      {
+        "id": "mem-itz-17",
+        "name": "Jurema Guajajara",
+        "dob": "1955-12-12",
+        "cns": "190012345678901",
+        "healthConditions": "Analfabeta"
+      },
+      {
+        "id": "mem-itz-18",
+        "name": "Aruanã Guajajara",
+        "dob": "1953-11-11",
+        "cns": "190012345678902",
+        "healthConditions": "Diabetes"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": [
+      {
+        "date": "2023-01-01T01:01:01.000Z",
+        "change": "Cadastro realizado durante busca ativa na aldeia.",
+        "changedBy": "Sofia Martins (ACS)",
+        "changeType": "Criado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-10",
+    "responsibleName": "Pedro Álvares Cabral",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1970-01-01",
+    "contactPhone": "99 98888-1500",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [{ "name": "gato", "count": 1 }],
+    "streetName": "Rua Dom Pedro II",
+    "houseNumber": "1500",
+    "neighborhood": "Vila Nova",
+    "zipCode": "65900-220",
+    "location": "-5.530123, -47.475678",
+    "numberOfResidents": 1,
+    "numComodos": 6,
+    "status": "Cadastro Duplicado",
+    "lastUpdatedAt": "2024-10-12T10:00:00.000Z",
+    "createdAt": "2024-10-12T10:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [
+      {
+        "id": "mem-itz-19",
+        "name": "Pedro Álvares Cabral",
+        "dob": "1970-01-01",
+        "cns": "777666555444333"
+      }
+    ],
+    "memberNotes": [
+      {
+        "id": "note-itz-10-1",
+        "note": "Morador já cadastrado no ID domicilio-itz-25. Necessário unificar.",
+        "files": [],
+        "createdAt": "2024-10-12T10:00:00Z",
+        "createdBy": "Sistema"
+      }
+    ],
+    "visits": [],
+    "history": [
+      {
+        "date": "2024-10-12T10:00:00.000Z",
+        "change": "Sistema identificou possível duplicidade de cadastro.",
+        "changedBy": "Sistema",
+        "changeType": "Alterado"
+      }
+    ]
+  },
+  {
+    "id": "domicilio-itz-11",
+    "responsibleName": "Luzia da Silva",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1988-05-25",
+    "contactPhone": "99 98456-7890",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Simplício Moreira",
+    "houseNumber": "1234",
+    "neighborhood": "Mercadinho",
+    "zipCode": "65901-490",
+    "location": "-5.528765, -47.481234",
+    "numberOfResidents": 2,
+    "numComodos": 4,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-06-01T09:30:00.000Z",
+    "createdAt": "2022-11-15T14:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "deficienciaFisica": 1,
+      "desemprego": 1
+    },
+    "members": [
+      {
+        "id": "mem-itz-20",
+        "name": "Luzia da Silva",
+        "dob": "1988-05-25",
+        "cns": "898000012345678",
+        "healthConditions": "Cegueira total"
+      },
+      {
+        "id": "mem-itz-21",
+        "name": "Carlos Alberto",
+        "dob": "1985-03-12",
+        "cns": "898000012345679",
+        "healthConditions": "Desempregado"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-itz-12",
+    "responsibleName": "Severino dos Ramos",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1940-07-30",
+    "contactPhone": "99 98877-6655",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Avenida JK",
+    "houseNumber": "2025",
+    "neighborhood": "Nova Imperatriz",
+    "zipCode": "65913-010",
+    "location": "-5.539876, -47.465432",
+    "numberOfResidents": 1,
+    "numComodos": 1,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-04-22T15:00:00.000Z",
+    "createdAt": "2020-02-20T12:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "acamado": 1,
+      "drogadiccao": 1,
+      "maiorDe70Anos": 1
+    },
+    "members": [
+      {
+        "id": "mem-itz-22",
+        "name": "Severino dos Ramos",
+        "dob": "1940-07-30",
+        "cns": "700123456789012",
+        "healthConditions": "Acamado, Alcoolismo, 84 anos"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-itz-13",
+    "responsibleName": "Joaquina Teixeira",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1982-01-15",
+    "contactPhone": "99 98100-2030",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Ceará",
+    "houseNumber": "999",
+    "neighborhood": "Três Poderes",
+    "zipCode": "65903-130",
+    "location": "-5.519876, -47.471234",
+    "numberOfResidents": 5,
+    "numComodos": 5,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-05-30T16:00:00.000Z",
+    "createdAt": "2018-01-10T11:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "deficienciaMental": 1,
+      "desemprego": 1,
+      "hipertensaoArterial": 1
+    },
+    "members": [
+      {
+        "id": "mem-itz-23",
+        "name": "Joaquina Teixeira",
+        "dob": "1982-01-15",
+        "cns": "708987654321098",
+        "healthConditions": "Depressão, Hipertensa"
+      },
+      {
+        "id": "mem-itz-24",
+        "name": "Ricardo Teixeira",
+        "dob": "2005-02-20",
+        "cns": "708987654321099",
+        "healthConditions": "Desempregado"
+      },
+      {
+        "id": "mem-itz-25",
+        "name": "Fernanda Teixeira",
+        "dob": "2007-03-25",
+        "cns": "708987654321090"
+      },
+      {
+        "id": "mem-itz-26",
+        "name": "Beatriz Teixeira",
+        "dob": "2010-04-30",
+        "cns": "708987654321091"
+      },
+      {
+        "id": "mem-itz-27",
+        "name": "Marido Ausente",
+        "dob": "1980-01-01",
+        "cns": "",
+        "healthConditions": "Agressor"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-itz-14",
+    "responsibleName": "Cláudia Leite",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1995-10-10",
+    "contactPhone": "99 99191-9191",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua XV de Novembro",
+    "houseNumber": "1511",
+    "neighborhood": "Centro",
+    "zipCode": "65901-590",
+    "location": "-5.526543, -47.479876",
+    "numberOfResidents": 3,
+    "numComodos": 4,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-06-11T14:20:00.000Z",
+    "createdAt": "2023-08-01T10:00:00.000Z",
+    "coelhoSavassiScaleData": { "hipertensaoArterial": 1 },
+    "members": [
+      {
+        "id": "mem-itz-28",
+        "name": "Cláudia Leite",
+        "dob": "1995-10-10",
+        "cns": "701234567890123",
+        "healthConditions": "Hipertensa"
+      },
+      {
+        "id": "mem-itz-29",
+        "name": "Márcio Pedreira",
+        "dob": "1993-05-15",
+        "cns": "701234567890124"
+      },
+      {
+        "id": "mem-itz-30",
+        "name": "Davi Leite Pedreira",
+        "dob": "2020-02-02",
+        "cns": "701234567890125"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-itz-15",
+    "responsibleName": "Eduardo Costa",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1980-12-13",
+    "contactPhone": "99 98765-4321",
+    "homePhone": "Nao tem",
+    "hasElectricity": "Sim",
+    "pets": [{ "name": "cachorro", "count": 1 }],
+    "streetName": "Rua do Alecrim",
+    "houseNumber": "777",
+    "neighborhood": "Vila Zenira",
+    "zipCode": "65905-230",
+    "location": "-5.514321, -47.456789",
+    "numberOfResidents": 2,
+    "numComodos": 2,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2024-09-18T18:00:00.000Z",
+    "createdAt": "2024-09-18T18:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "drogadiccao": 2,
+      "desemprego": 2
+    },
+    "members": [
+      {
+        "id": "mem-itz-31",
+        "name": "Eduardo Costa",
+        "dob": "1980-12-13",
+        "cns": "898001020304050",
+        "healthConditions": "Alcoolismo, Desempregado"
+      },
+      {
+        "id": "mem-itz-32",
+        "name": "Leonardo Costa",
+        "dob": "2005-11-23",
+        "cns": "898001020304051",
+        "healthConditions": "Uso de maconha, Desempregado"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-itz-16",
+    "responsibleName": "Cauã Reymond",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1980-05-20",
+    "contactPhone": "99 99999-9999",
+    "homePhone": "99 3525-9999",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Avenida Dorgival Pinheiro de Sousa",
+    "houseNumber": "100",
+    "neighborhood": "Centro",
+    "zipCode": "65901-550",
+    "location": "-5.526789, -47.478910",
+    "numberOfResidents": 1,
+    "numComodos": 10,
+    "status": "Pendente",
+    "lastUpdatedAt": "2025-01-15T12:00:00.000Z",
+    "createdAt": "2024-01-15T12:00:00.000Z",
+    "coelhoSavassiScaleData": {},
+    "members": [],
+    "memberNotes": [
+      {
+        "id": "note-itz-16-1",
+        "note": "Porteiro informou que o morador não recebe visitas do SUS.",
+        "files": [],
+        "createdAt": "2025-01-15T12:00:00Z",
+        "createdBy": "Juliana (ACS)"
+      }
+    ],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-itz-17",
+    "responsibleName": "Rita Lee",
+    "responsibleGender": "Mulher Cis",
+    "responsibleDob": "1947-12-31",
+    "contactPhone": "99 98122-3344",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Coriolano Milhomem",
+    "houseNumber": "450",
+    "neighborhood": "Centro",
+    "zipCode": "65903-230",
+    "location": "-5.521234, -47.475432",
+    "numberOfResidents": 1,
+    "numComodos": 3,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-04-01T16:20:00.000Z",
+    "createdAt": "2022-03-10T11:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "deficienciaMental": 1,
+      "maiorDe70Anos": 1
+    },
+    "members": [
+      {
+        "id": "mem-itz-33",
+        "name": "Rita Lee",
+        "dob": "1947-12-31",
+        "cns": "700112233445566",
+        "healthConditions": "Acumuladora Compulsiva, 77 anos"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-itz-18",
+    "responsibleName": "Anderson Silva",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1975-04-14",
+    "contactPhone": "99 98800-1122",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua Godofredo Viana",
+    "houseNumber": "1122",
+    "neighborhood": "Centro",
+    "zipCode": "65901-410",
+    "location": "-5.527890, -47.480123",
+    "numberOfResidents": 3,
+    "numComodos": 5,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-05-15T13:00:00.000Z",
+    "createdAt": "2023-09-20T09:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "deficienciaFisica": 1,
+      "hipertensaoArterial": 2
+    },
+    "members": [
+      {
+        "id": "mem-itz-34",
+        "name": "Anderson Silva",
+        "dob": "1975-04-14",
+        "cns": "704567890123456",
+        "healthConditions": "Hipertenso"
+      },
+      {
+        "id": "mem-itz-35",
+        "name": "Dayane Silva",
+        "dob": "1978-01-01",
+        "cns": "704567890123457",
+        "healthConditions": "Hipertensa"
+      },
+      {
+        "id": "mem-itz-36",
+        "name": "Kalyl Silva",
+        "dob": "2000-01-01",
+        "cns": "704567890123458",
+        "healthConditions": "Amputação de perna D"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-itz-19",
+    "responsibleName": "Tiririca",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1965-05-01",
+    "contactPhone": "99 98181-8181",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua do Passeio",
+    "houseNumber": "1",
+    "neighborhood": "Centro",
+    "zipCode": "65901-440",
+    "location": "-5.524567, -47.479876",
+    "numberOfResidents": 10,
+    "numComodos": 3,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2024-04-01T10:00:00.000Z",
+    "createdAt": "2024-04-01T10:00:00.000Z",
+    "coelhoSavassiScaleData": {
+      "analfabetismo": 1,
+      "maiorDe70Anos": 2
+    },
+    "members": [
+      {
+        "id": "mem-itz-37",
+        "name": "Francisco Everardo Oliveira Silva",
+        "dob": "1965-05-01",
+        "cns": "700987654321098",
+        "healthConditions": "Analfabeto funcional"
+      }
+    ],
+    "memberNotes": [],
+    "visits": [],
+    "history": []
+  },
+  {
+    "id": "domicilio-itz-20",
+    "responsibleName": "Silvio Santos",
+    "responsibleGender": "Homem Cis",
+    "responsibleDob": "1930-12-12",
+    "contactPhone": "99 98400-1200",
+    "homePhone": "",
+    "hasElectricity": "Sim",
+    "pets": [],
+    "streetName": "Rua das Laranjeiras",
+    "houseNumber": "123",
+    "neighborhood": "Jardim São Luís",
+    "zipCode": "65913-210",
+    "location": "-5.541234, -47.459876",
+    "numberOfResidents": 8,
+    "numComodos": 15,
+    "status": "Atualizado",
+    "lastUpdatedAt": "2025-06-12T11:00:00.000Z",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "coelhoSavassiScaleData": { "maiorDe70Anos": 1 },
+    "members": [
+      {
+        "id": "mem-itz-38",
+        "name": "Senor Abravanel",
+        "dob": "1930-12-12",
+        "cns": "123456789012345",
+        "healthConditions": "Idoso hígido"
+      }
+    ],
+    "memberNotes": [
+      {
+        "id": "note-itz-20-1",
+        "memberName": "Senor Abravanel",
+        "note": "Visita de cortesia. Morador recusa atendimento regular da equipe de saúde.",
+        "files": [],
+        "createdAt": "2025-06-12T11:00:00Z",
+        "createdBy": "Dr. House (Médico)"
+      }
+    ],
+    "visits": [
+      {
+        "id": "vis-itz-20-1",
+        "scheduledDate": "2025-06-12T10:00:00Z",
+        "status": "Realizada",
+        "notes": "Tentativa de visita de rotina.",
+        "createdAt": "2025-06-12T11:05:00Z",
+        "createdBy": "Dr. House (Médico)"
+      }
+    ],
+    "history": [
+      {
+        "date": "2019-01-01T00:00:00.000Z",
+        "change": "Domicílio cadastrado.",
+        "changedBy": "Sistema",
+        "changeType": "Criado"
+      }
+    ]
+  }
+]
