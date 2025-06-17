@@ -1,25 +1,30 @@
-import express from 'express';
-import cors from 'cors';
-import householdRoutes from './routes/householdRoutes.js';
-import authRoutes from './routes/authRoutes.js';
-import createConfigRoutes from './routes/configRoutes.js';
-import { loadCityConfig } from './config/cityConfig.js';
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const configRoutes = require('./routes/configRoutes');
+const householdRoutes = require('./routes/householdRoutes');
+const authRoutes = require('./routes/authRoutes');
+const householdService = require('./services/householdService');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-const cityConfig = loadCityConfig(process.env.CITY_CODE || 'imperatriz-ma');
+const setCityMiddleware = (req, res, next) => {
+    const city = req.query.city || 'imperatriz';
+    householdService.setCity(city);
+    next();
+};
 
-const configRoutes = createConfigRoutes(cityConfig);
+app.use('/api/config', configRoutes);
+app.use('/api/households', setCityMiddleware, householdRoutes);
+app.use('/api', authRoutes);
 
-// Rotas
-app.use('/api/households', householdRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/config', configRoutes); // Usa as rotas configuradas
+app.get('/', (req, res) => {
+    res.send('ACS Risco Familiar API');
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

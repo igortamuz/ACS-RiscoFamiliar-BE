@@ -1,26 +1,21 @@
-import authService from '../services/authService.js';
+const authService = require('../services/authService');
 
-const loginUser = (req, res) => {
+const login = (req, res) => {
     try {
-        const { cpf, password } = req.body;
-        const user = authService.login(cpf, password);
-        res.status(200).json(user);
+        const { username, password } = req.body;
+        const user = authService.authenticate(username, password);
+
+        if (user) {
+            const { password, ...userWithoutPassword } = user;
+            res.json({ token: 'mock-jwt-token', user: userWithoutPassword });
+        } else {
+            res.status(401).json({ message: 'Invalid credentials' });
+        }
     } catch (error) {
-        res.status(401).json({ message: error.message });
+        res.status(500).json({ message: 'Internal server error' });
     }
 };
 
-const resetPassword = (req, res) => {
-    try {
-        const { identifier } = req.body;
-        const message = authService.requestPasswordReset(identifier);
-        res.status(200).json({ message });
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-};
-
-export default {
-    loginUser,
-    resetPassword,
+module.exports = {
+    login
 };

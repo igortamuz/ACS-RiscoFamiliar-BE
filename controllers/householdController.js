@@ -1,6 +1,5 @@
 import householdService from '../services/householdService.js';
 
-// Funções de domicílio (permanecem iguais)
 const getAllHouseholds = (req, res) => {
     try {
         const households = householdService.getHouseholds(req.query);
@@ -53,19 +52,10 @@ const deleteHousehold = (req, res) => {
     }
 };
 
-
-// --- FUNÇÕES DE ANOTAÇÕES CORRIGIDAS ---
-
-/**
- * Adiciona uma nota a um domicílio, não mais a um membro.
- */
 const addNoteToHousehold = (req, res) => {
     try {
-        // Extrai o ID do domicílio da URL, conforme definido na nova rota
         const { householdId } = req.params;
         const { appId } = req.query;
-
-        // O corpo da requisição (req.body) deve conter { memberName, note, createdBy }
         const newNote = householdService.addMemberNote(householdId, req.body, appId);
         res.status(201).json(newNote);
     } catch (error) {
@@ -73,15 +63,10 @@ const addNoteToHousehold = (req, res) => {
     }
 };
 
-/**
- * Deleta uma nota de um domicílio.
- */
 const deleteNoteFromHousehold = (req, res) => {
     try {
-        // Extrai ambos os IDs da URL
         const { householdId, noteId } = req.params;
         const { appId } = req.query;
-
         householdService.deleteMemberNote(householdId, noteId, appId);
         res.status(204).send();
     } catch (error) {
@@ -89,13 +74,12 @@ const deleteNoteFromHousehold = (req, res) => {
     }
 };
 
-// Exporta todas as funções, incluindo as renomeadas
 export default {
     getAllHouseholds,
     getHouseholdById,
     createHousehold,
     updateHousehold,
     deleteHousehold,
-    addNoteToHousehold,       // Função corrigida e renomeada
-    deleteNoteFromHousehold   // Função corrigida e renomeada
+    addNoteToHousehold,
+    deleteNoteFromHousehold
 };
