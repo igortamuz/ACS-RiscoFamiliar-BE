@@ -1,130 +1,181 @@
-import households_itz from '../data/households_imperatriz.json' with { type: 'json' };
-import households_ctb from '../data/households_curitiba.json' with { type: 'json' };
+import { promises as fs } from "fs";
+import path from "path";
+import { v4 as uuidv4 } from "uuid";
+import { fileURLToPath } from "url";
 
-// Centraliza os dados dos domicílios por cidade
-const householdsData = {
-    'imperatriz-ma': households_itz,
-    'curitiba-pr': households_ctb,
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const getFilePath = (appId) => {
+  const city = appId === "IMP" ? "imperatriz" : "curitiba";
+  return path.join(__dirname, `../data/households_${city}.json`);
 };
 
-// Retorna todos os domicílios de uma cidade específica.
-const getHouseholds = (query) => {
-    const city = query.city || query.appId;
-    const cityData = householdsData[city];
-    if (!cityData) {
-        throw new Error('Cidade não encontrada');
+const readData = async (appId) => {
+  const filePath = getFilePath(appId);
+  try {
+    const data = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(data);
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return [];
     }
-    return cityData;
+    throw error;
+  }
 };
 
-// Busca e retorna um domicílio específico pelo seu ID.
-const getHouseholdById = (id, appId) => {
-    const cityData = householdsData[appId];
-    if (!cityData) {
-        throw new Error('Cidade não encontrada');
-    }
-    const household = cityData.find(h => h.id === id);
-    if (!household) {
-        throw new Error('Domicílio não encontrado');
-    }
-    return household;
+const writeData = async (appId, data) => {
+  const filePath = getFilePath(appId);
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
 };
 
-// Adiciona um novo domicílio à lista da cidade.
-const addHousehold = (householdData, appId) => {
-    const cityData = householdsData[appId];
-    if (!cityData) {
-        throw new Error('Cidade não encontrada');
-    }
+export const getAll = async (appId) => readData(appId);
 
-    const numericIds = cityData.map(h => parseInt(h.id.split('-').pop() || '0'));
-    const maxId = Math.max(0, ...numericIds);
-    const newId = `domicilio-${appId}-${maxId + 1}`;
+export const getById = async (id, appId) => {
+  const households = await readData(appId);
+  return households.find((h) => h.id === id);
+};
 
-    const newHousehold = {
-        id: newId,
-        ...householdData,
-        members: householdData.members || [],
-        memberNotes: householdData.memberNotes || [],
-        visits: householdData.visits || [],
-        history: householdData.history || []
+export const create = async (data, appId) => {
+  const households = await readData(appId);
+  const newHousehold = {
+    ...data,
+    id: uuidv4(),
+    createdAt: new Date().toISOString(),
+    lastUpdatedAt: new Date().toISOString(),
+    history: [
+      {
+        date: new Date().toISOString(),
+        changedBy: "Usuário do Sistema",
+        changeType: "Criado",
+        change: "Domicílio criado.",
+      },
+    ],
+    memberNotes: [],
+  };
+  households.push(newHousehold);
+  await writeData(appId, households);
+  return newHousehold;
+};
+
+export const update = async (id, data, appId) => {
+  const households = await readData(appId);
+  const index = households.findIndex((h) => h.id === id);
+  if (index > -1) {
+    const originalHousehold = households[index];
+    households[index] = {
+      ...originalHousehold,
+      ...data,
+      lastUpdatedAt: new Date().toISOString(),
     };
 
-    cityData.push(newHousehold);
-    return newHousehold;
+    if (!households[index].history) households[index].history = [];
+    households[index].history.push({
+      date: new Date().toISOString(),
+      changedBy: "Usuário do Sistema",
+      changeType: "Alterado",
+      change: "Dados do domicílio foram atualizados.",
+    });
+
+    await writeData(appId, households);
+    return households[index];
+  }
+  return null;
 };
 
-// Atualiza os dados de um domicílio existente.
-const updateHousehold = (id, householdData, appId) => {
-    const cityData = householdsData[appId];
-    if (!cityData) {
-        throw new Error('Cidade não encontrada');
-    }
-
-    const householdIndex = cityData.findIndex(h => h.id === id);
-    if (householdIndex === -1) {
-        throw new Error('Domicílio não encontrado para atualizar.');
-    }
-
-    const updatedHousehold = { ...cityData[householdIndex], ...householdData, id: id };
-    cityData[householdIndex] = updatedHousehold;
-    return updatedHousehold;
+export const remove = async (id, appId) => {
+  let households = await readData(appId);
+  const initialLength = households.length;
+  households = households.filter((h) => h.id !== id);
+  if (households.length === initialLength) {
+    throw new Error("Domicílio não encontrado para exclusão.");
+  }
+  await writeData(appId, households);
 };
 
-// Remove um domicílio da lista pelo seu ID.
-const deleteHousehold = (id, appId) => {
-    const cityData = householdsData[appId];
-    if (!cityData) {
-        throw new Error('Cidade não encontrada');
-    }
-    const initialLength = cityData.length;
-    householdsData[appId] = cityData.filter(h => h.id !== id);
-    return householdsData[appId].length < initialLength;
+export const addNote = async (householdId, noteData, appId) => {
+  const households = await readData(appId);
+  const householdIndex = households.findIndex((h) => h.id === householdId);
+
+  if (householdIndex === -1) {
+    throw new Error("Domicílio não encontrado.");
+  }
+
+  const household = households[householdIndex];
+
+  if (!household.memberNotes) {
+    household.memberNotes = [];
+  }
+
+  const newNote = {
+    id: uuidv4(),
+    memberName: noteData.memberName,
+    note: noteData.noteText,
+    files: noteData.files,
+    createdBy: noteData.createdBy,
+    createdAt: new Date().toISOString(),
+  };
+
+  household.memberNotes.push(newNote);
+
+  if (!household.history) {
+    household.history = [];
+  }
+  household.history.push({
+    date: new Date().toISOString(),
+    changedBy: noteData.createdBy,
+    changeType: "Adicionado",
+    change: `Anotação para "${noteData.memberName}" foi adicionada.`,
+  });
+
+  household.lastUpdatedAt = new Date().toISOString();
+  households[householdIndex] = household;
+  await writeData(appId, households);
+
+  return household;
 };
 
-// Adiciona uma nova anotação a um domicílio.
-const addMemberNote = (householdId, noteData, appId) => {
-    const household = getHouseholdById(householdId, appId);
+export const deleteNote = async (
+  householdId,
+  noteId,
+  appId,
+  deletedBy = "Usuário do Sistema"
+) => {
+  const households = await readData(appId);
+  const householdIndex = households.findIndex((h) => h.id === householdId);
 
-    const householdNumericId = household.id.split('-').pop();
-    const maxNoteNumericId = household.memberNotes
-        .map(n => parseInt(n.id.split('-').pop() || '0'))
-        .reduce((max, id) => Math.max(max, id), 0);
-    const newNoteId = `note-${appId}-${householdNumericId}-${maxNoteNumericId + 1}`;
+  if (householdIndex === -1) {
+    throw new Error("Domicílio não encontrado.");
+  }
 
-    const newNote = {
-        id: newNoteId,
-        memberName: noteData.memberName,
-        note: noteData.note,
-        files: [],
-        createdAt: new Date().toISOString(),
-        createdBy: noteData.createdBy
-    };
+  const household = households[householdIndex];
 
-    household.memberNotes.push(newNote);
-    return newNote;
-};
+  if (!household.memberNotes || household.memberNotes.length === 0) {
+    throw new Error("Nenhuma anotação para excluir.");
+  }
 
-// Remove uma anotação de um domicílio.
-const deleteMemberNote = (householdId, noteId, appId) => {
-    const household = getHouseholdById(householdId, appId);
-    const initialLength = household.memberNotes.length;
+  const noteIndex = household.memberNotes.findIndex((n) => n.id === noteId);
 
-    household.memberNotes = household.memberNotes.filter(n => n.id !== noteId);
+  if (noteIndex === -1) {
+    throw new Error("Anotação não encontrada.");
+  }
 
-    if (household.memberNotes.length === initialLength) {
-        throw new Error('Anotação não encontrada.');
-    }
-    return true;
-};
+  const noteToDelete = household.memberNotes[noteIndex];
+  household.memberNotes.splice(noteIndex, 1);
 
+  if (!household.history) {
+    household.history = [];
+  }
+  household.history.push({
+    date: new Date().toISOString(),
+    changedBy: deletedBy,
+    changeType: "Removido",
+    change: `Anotação para "${noteToDelete.memberName}" foi removida.`,
+  });
 
-export default {
-    getHouseholds,
-    getHouseholdById,
-    addHousehold,
-    updateHousehold,
-    deleteHousehold,
-    addMemberNote,
-    deleteMemberNote
+  household.lastUpdatedAt = new Date().toISOString();
+  households[householdIndex] = household;
+  await writeData(appId, households);
+
+  return household;
 };

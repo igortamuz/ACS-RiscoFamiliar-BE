@@ -1,34 +1,39 @@
 import express from 'express';
 import cors from 'cors';
-import configRoutes from './routes/configRoutes.js';
+import bodyParser from 'body-parser';
+
 import householdRoutes from './routes/householdRoutes.js';
 import authRoutes from './routes/authRoutes.js';
-import householdService from './services/householdService.js';
+import configRoutes from './routes/configRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middlewares
+// Middleware para habilitar CORS
 app.use(cors());
 
-app.use(express.json());
+// Middleware para parsear o corpo das requisições em JSON
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-const setCityMiddleware = (req, res, next) => {
-    const city = req.query.city || 'imperatriz-ma';
-    householdService.setCity(city);
-    next();
-};
+// Middleware para identificar a aplicação (cidade) através do header 'X-App-Id'
+app.use((req, res, next) => {
+  const appId = req.headers['x-app-id'];
+  if (!appId) {
+    return res.status(400).json({ message: 'O header X-App-Id é obrigatório.' });
+  }
+  req.appId = appId;
+  next();
+});
 
-// Rotas da Aplicação
+app.use('/api/households', householdRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/config', configRoutes);
-app.use('/api/households', setCityMiddleware, householdRoutes);
-app.use('/api', authRoutes);
 
-// Rota raiz
 app.get('/', (req, res) => {
-    res.send('ACS Risco Familiar API');
+  res.send('API do Risco Familiar no Ar!');
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Servidor rodando na porta ${PORT}`);
 });

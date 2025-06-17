@@ -1,16 +1,27 @@
-import express from 'express';
-import householdController from '../controllers/householdController.js';
+import { Router } from "express";
+import multer from "multer";
+import {
+  getAllHouseholds,
+  getHouseholdById,
+  createHousehold,
+  updateHousehold,
+  deleteHousehold,
+  addNoteToHousehold,
+  deleteNoteFromHousehold,
+} from "../controllers/householdController.js";
 
-const router = express.Router();
+const router = Router();
 
-router.get('/', householdController.getAllHouseholds);
-router.post('/', householdController.createHousehold);
-router.get('/:id', householdController.getHouseholdById);
-router.put('/:id', householdController.updateHousehold);
-router.delete('/:id', householdController.deleteHousehold);
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
-router.post('/:householdId/notes', householdController.addNoteToHousehold);
+router.get("/", getAllHouseholds);
+router.get("/:id", getHouseholdById);
+router.post("/", createHousehold);
+router.put("/:id", updateHousehold);
+router.delete("/:id", deleteHousehold);
 
-router.delete('/:householdId/notes/:noteId', householdController.deleteNoteFromHousehold);
+router.post("/:id/notes", upload.array("files", 10), addNoteToHousehold);
+router.delete("/:id/notes/:noteId", deleteNoteFromHousehold);
 
 export default router;

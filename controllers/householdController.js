@@ -1,85 +1,110 @@
-import householdService from '../services/householdService.js';
+import * as householdService from "../services/householdService.js";
 
-const getAllHouseholds = (req, res) => {
-    try {
-        const households = householdService.getHouseholds(req.query);
-        res.status(200).json(households);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+export const getAllHouseholds = async (req, res) => {
+  try {
+    const households = await householdService.getAll(req.appId);
+    res.json(households);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-const getHouseholdById = (req, res) => {
-    try {
-        const { id } = req.params;
-        const { appId } = req.query;
-        const household = householdService.getHouseholdById(id, appId);
-        res.status(200).json(household);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
+export const getHouseholdById = async (req, res) => {
+  try {
+    const household = await householdService.getById(req.params.id, req.appId);
+    if (household) {
+      res.json(household);
+    } else {
+      res.status(404).json({ message: "Domicílio não encontrado" });
     }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-const createHousehold = (req, res) => {
-    try {
-        const { appId } = req.query;
-        const newHousehold = householdService.addHousehold(req.body, appId);
-        res.status(201).json(newHousehold);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
+export const createHousehold = async (req, res) => {
+  try {
+    const newHousehold = await householdService.create(req.body, req.appId);
+    res.status(201).json(newHousehold);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
 
-const updateHousehold = (req, res) => {
-    try {
-        const { id } = req.params;
-        const { appId } = req.query;
-        const updatedHousehold = householdService.updateHousehold(id, req.body, appId);
-        res.status(200).json(updatedHousehold);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
+export const updateHousehold = async (req, res) => {
+  try {
+    const updatedHousehold = await householdService.update(
+      req.params.id,
+      req.body,
+      req.appId
+    );
+    res.json(updatedHousehold);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
 
-const deleteHousehold = (req, res) => {
-    try {
-        const { id } = req.params;
-        const { appId } = req.query;
-        householdService.deleteHousehold(id, appId);
-        res.status(204).send();
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
+export const deleteHousehold = async (req, res) => {
+  try {
+    await householdService.remove(req.params.id, req.appId);
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-const addNoteToHousehold = (req, res) => {
-    try {
-        const { householdId } = req.params;
-        const { appId } = req.query;
-        const newNote = householdService.addMemberNote(householdId, req.body, appId);
-        res.status(201).json(newNote);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
+export const addNoteToHousehold = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { memberName, noteText, createdBy } = req.body;
+    const files = req.files || [];
+
+    const noteData = {
+      memberName,
+      noteText,
+      files: files.map((file) => ({
+        id: `${Date.now()}-${file.originalname}`,
+        name: file.originalname,
+        type: file.mimetype,
+      })),
+      createdBy: createdBy || "Usuário do Sistema",
+    };
+
+    const updatedHousehold = await householdService.addNote(
+      id,
+      noteData,
+      req.appId
+    );
+    res.status(201).json(updatedHousehold);
+  } catch (error) {
+    console.error("Controller Error:", error);
+    res
+      .status(500)
+      .json({ message: `Erro ao adicionar anotação: ${error.message}` });
+  }
 };
 
-const deleteNoteFromHousehold = (req, res) => {
-    try {
-        const { householdId, noteId } = req.params;
-        const { appId } = req.query;
-        householdService.deleteMemberNote(householdId, noteId, appId);
-        res.status(204).send();
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-};
+export const deleteNoteFromHousehold = async (req, res) => {
+  try {
+    const { id, noteId } = req.params;
+    const { deletedBy } = req.body;
 
-export default {
-    getAllHouseholds,
-    getHouseholdById,
-    createHousehold,
-    updateHousehold,
-    deleteHousehold,
-    addNoteToHousehold,
-    deleteNoteFromHousehold
+    const updatedHousehold = await householdService.deleteNote(
+      id,
+      noteId,
+      req.appId,
+      deletedBy
+    );
+    res
+      .status(200)
+      .json({
+        message: "Anotação excluída com sucesso!",
+        household: updatedHousehold,
+      });
+  } catch (error) {
+    console.error("Controller Error:", error);
+    res
+      .status(500)
+      .json({ message: `Erro ao excluir anotação: ${error.message}` });
+  }
 };
