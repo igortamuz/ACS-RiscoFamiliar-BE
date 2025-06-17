@@ -13,4 +13,4 @@ const CITY_CONFIG = {
   },
 };
 
-module.exports = CITY_CONFIG;
+export default CITY_CONFIG;

@@ -1,4 +1,4 @@
-const authService = require('../services/authService');
+import authService from '../services/authService.js';
 
 const login = (req, res) => {
     try {
@@ -16,6 +16,6 @@ const login = (req, res) => {
     }
 };
 
-module.exports = {
+export default {
     login
 };

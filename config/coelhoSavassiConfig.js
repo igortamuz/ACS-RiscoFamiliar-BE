@@ -159,7 +159,7 @@ const calculateCoelhoSavassi = (householdData) => {
     };
 }
 
-module.exports = {
+export default {
     coelhoSavassiSentinels,
     getRiskLevelDetails,
     calculateCoelhoSavassi

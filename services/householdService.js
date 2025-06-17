@@ -1,15 +1,13 @@
-// Alterado de 'assert' para 'with' em ambas as importações
 import households_itz from '../data/households_imperatriz.json' with { type: 'json' };
 import households_ctb from '../data/households_curitiba.json' with { type: 'json' };
 
+// Centraliza os dados dos domicílios por cidade
 const householdsData = {
-    itz: households_itz,
-    ctb: households_ctb,
+    'imperatriz-ma': households_itz,
+    'curitiba-pr': households_ctb,
 };
 
-/**
- * Retorna todos os domicílios de uma cidade.
- */
+// Retorna todos os domicílios de uma cidade específica.
 const getHouseholds = (query) => {
     const city = query.city || query.appId;
     const cityData = householdsData[city];
@@ -19,15 +17,12 @@ const getHouseholds = (query) => {
     return cityData;
 };
 
-/**
- * Retorna um domicílio específico pelo seu ID.
- */
+// Busca e retorna um domicílio específico pelo seu ID.
 const getHouseholdById = (id, appId) => {
     const cityData = householdsData[appId];
     if (!cityData) {
         throw new Error('Cidade não encontrada');
     }
-    // IDs agora são strings, como "domicilio-itz-1"
     const household = cityData.find(h => h.id === id);
     if (!household) {
         throw new Error('Domicílio não encontrado');
@@ -35,24 +30,20 @@ const getHouseholdById = (id, appId) => {
     return household;
 };
 
-/**
- * Adiciona um novo domicílio ao "banco de dados".
- */
+// Adiciona um novo domicílio à lista da cidade.
 const addHousehold = (householdData, appId) => {
     const cityData = householdsData[appId];
     if (!cityData) {
         throw new Error('Cidade não encontrada');
     }
 
-    // Lógica para gerar um novo ID no formato "domicilio-itz-N"
-    const numericIds = cityData.map(h => parseInt(h.id.split('-').pop()));
+    const numericIds = cityData.map(h => parseInt(h.id.split('-').pop() || '0'));
     const maxId = Math.max(0, ...numericIds);
     const newId = `domicilio-${appId}-${maxId + 1}`;
 
     const newHousehold = {
         id: newId,
         ...householdData,
-        // Garante que arrays importantes existam
         members: householdData.members || [],
         memberNotes: householdData.memberNotes || [],
         visits: householdData.visits || [],
@@ -63,9 +54,7 @@ const addHousehold = (householdData, appId) => {
     return newHousehold;
 };
 
-/**
- * Atualiza os dados de um domicílio existente.
- */
+// Atualiza os dados de um domicílio existente.
 const updateHousehold = (id, householdData, appId) => {
     const cityData = householdsData[appId];
     if (!cityData) {
@@ -73,73 +62,60 @@ const updateHousehold = (id, householdData, appId) => {
     }
 
     const householdIndex = cityData.findIndex(h => h.id === id);
-
     if (householdIndex === -1) {
         throw new Error('Domicílio não encontrado para atualizar.');
     }
 
-    // Combina os dados antigos com os novos, mantendo o ID original
     const updatedHousehold = { ...cityData[householdIndex], ...householdData, id: id };
-
     cityData[householdIndex] = updatedHousehold;
     return updatedHousehold;
 };
 
-/**
- * Deleta um domicílio do "banco de dados".
- */
+// Remove um domicílio da lista pelo seu ID.
 const deleteHousehold = (id, appId) => {
     const cityData = householdsData[appId];
     if (!cityData) {
         throw new Error('Cidade não encontrada');
     }
-
     const initialLength = cityData.length;
     householdsData[appId] = cityData.filter(h => h.id !== id);
-
     return householdsData[appId].length < initialLength;
 };
 
-/**
- * Adiciona uma anotação a um domicílio.
- * A função agora recebe o ID do DOMICÍLIO.
- */
+// Adiciona uma nova anotação a um domicílio.
 const addMemberNote = (householdId, noteData, appId) => {
-    const household = getHouseholdById(householdId, appId); // Reutiliza a função de busca
+    const household = getHouseholdById(householdId, appId);
 
-    // Gera um ID para a nova anotação no formato "note-itz-1-1"
     const householdNumericId = household.id.split('-').pop();
-    const maxNoteNumericId = household.memberNotes.map(n => parseInt(n.id.split('-').pop())).reduce((max, id) => Math.max(max, id), 0);
+    const maxNoteNumericId = household.memberNotes
+        .map(n => parseInt(n.id.split('-').pop() || '0'))
+        .reduce((max, id) => Math.max(max, id), 0);
     const newNoteId = `note-${appId}-${householdNumericId}-${maxNoteNumericId + 1}`;
 
     const newNote = {
         id: newNoteId,
-        memberName: noteData.memberName, // O nome do membro deve vir no corpo da requisição
+        memberName: noteData.memberName,
         note: noteData.note,
         files: [],
         createdAt: new Date().toISOString(),
-        createdBy: noteData.createdBy // O autor também deve vir na requisição
+        createdBy: noteData.createdBy
     };
 
     household.memberNotes.push(newNote);
     return newNote;
 };
 
-/**
- * Deleta uma anotação de um domicílio.
- * Recebe o ID do domicílio e o ID da anotação.
- */
+// Remove uma anotação de um domicílio.
 const deleteMemberNote = (householdId, noteId, appId) => {
     const household = getHouseholdById(householdId, appId);
-
     const initialLength = household.memberNotes.length;
+
     household.memberNotes = household.memberNotes.filter(n => n.id !== noteId);
 
-    if (household.memberNotes.length >= initialLength) {
+    if (household.memberNotes.length === initialLength) {
         throw new Error('Anotação não encontrada.');
     }
-
-    return true; // Sucesso
+    return true;
 };
 
 

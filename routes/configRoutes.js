@@ -1,9 +1,9 @@
 import express from 'express';
-import configController from '../controllers/configController.js'; 
+import { getCityConfig, getCoelhoSavassiConfig } from '../controllers/configController.js';
 
 const router = express.Router();
 
-router.get('/cities', configController.getCityConfig);
-router.get('/sentinels', configController.getCoelhoSavassiConfig);
+router.get('/cities', getCityConfig);
+router.get('/sentinels', getCoelhoSavassiConfig);
 
 export default router;
