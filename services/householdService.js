@@ -1,115 +1,149 @@
-const fs = require('fs');
-const path = require('path');
+// Alterado de 'assert' para 'with' em ambas as importações
+import households_itz from '../data/households_imperatriz.json' with { type: 'json' };
+import households_ctb from '../data/households_curitiba.json' with { type: 'json' };
 
-// Carrega os dados dos arquivos JSON
-const loadData = () => {
-    try {
-        const imperatrizData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/households_imperatriz.json'), 'utf8'));
-        const curitibaData = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/households_curitiba.json'), 'utf8'));
-        return {
-            'imperatriz-ma': imperatrizData,
-            'curitiba-pr': curitibaData
-        };
-    } catch (error) {
-        console.error("Erro ao carregar dados dos domicílios:", error);
-        return { 'imperatriz-ma': [], 'curitiba-pr': [] };
-    }
+const householdsData = {
+    itz: households_itz,
+    ctb: households_ctb,
 };
 
-let datasets = loadData();
-
-const getDb = (appId) => datasets[appId] || [];
-
-const getHouseholds = (options = {}) => {
-    const { page = 1, limit = 10, filters = "{}", riskFilters = "[]", sortConfig = "{}", appId } = options;
-    const parsedFilters = JSON.parse(filters);
-    const parsedRiskFilters = JSON.parse(riskFilters);
-    const parsedSortConfig = JSON.parse(sortConfig);
-
-    let results = [...getDb(appId)];
-
-    // Lógica de filtro e ordenação (simplificada para o exemplo)
-    if (Object.keys(parsedFilters).length > 0 && parsedFilters.responsibleName) {
-        results = results.filter(h => h.responsibleName.toLowerCase().includes(parsedFilters.responsibleName.toLowerCase()));
+/**
+ * Retorna todos os domicílios de uma cidade.
+ */
+const getHouseholds = (query) => {
+    const city = query.city || query.appId;
+    const cityData = householdsData[city];
+    if (!cityData) {
+        throw new Error('Cidade não encontrada');
     }
-
-    if (parsedSortConfig.key) {
-        // Implementar lógica de ordenação aqui se necessário
-    }
-
-    const totalItems = results.length;
-    const paginatedData = results.slice((page - 1) * limit, page * limit);
-
-    return { data: paginatedData, totalItems };
+    return cityData;
 };
 
+/**
+ * Retorna um domicílio específico pelo seu ID.
+ */
 const getHouseholdById = (id, appId) => {
-    const db = getDb(appId);
-    const household = db.find(h => h.id === id);
+    const cityData = householdsData[appId];
+    if (!cityData) {
+        throw new Error('Cidade não encontrada');
+    }
+    // IDs agora são strings, como "domicilio-itz-1"
+    const household = cityData.find(h => h.id === id);
     if (!household) {
-        throw new Error('Domicílio não encontrado.');
+        throw new Error('Domicílio não encontrado');
     }
     return household;
 };
 
-const addHousehold = (data, appId) => {
-    const db = getDb(appId);
+/**
+ * Adiciona um novo domicílio ao "banco de dados".
+ */
+const addHousehold = (householdData, appId) => {
+    const cityData = householdsData[appId];
+    if (!cityData) {
+        throw new Error('Cidade não encontrada');
+    }
+
+    // Lógica para gerar um novo ID no formato "domicilio-itz-N"
+    const numericIds = cityData.map(h => parseInt(h.id.split('-').pop()));
+    const maxId = Math.max(0, ...numericIds);
+    const newId = `domicilio-${appId}-${maxId + 1}`;
+
     const newHousehold = {
-        ...data,
-        id: `${appId}-local-${Date.now()}`,
-        createdAt: new Date().toISOString(),
-        lastUpdatedAt: new Date().toISOString(),
+        id: newId,
+        ...householdData,
+        // Garante que arrays importantes existam
+        members: householdData.members || [],
+        memberNotes: householdData.memberNotes || [],
+        visits: householdData.visits || [],
+        history: householdData.history || []
     };
-    db.push(newHousehold);
+
+    cityData.push(newHousehold);
     return newHousehold;
 };
 
-const updateHousehold = (id, data, appId) => {
-    const db = getDb(appId);
-    const index = db.findIndex(h => h.id === id);
-    if (index === -1) {
-        throw new Error('Domicílio não encontrado para atualização.');
+/**
+ * Atualiza os dados de um domicílio existente.
+ */
+const updateHousehold = (id, householdData, appId) => {
+    const cityData = householdsData[appId];
+    if (!cityData) {
+        throw new Error('Cidade não encontrada');
     }
-    db[index] = { ...db[index], ...data, lastUpdatedAt: new Date().toISOString() };
-    return db[index];
+
+    const householdIndex = cityData.findIndex(h => h.id === id);
+
+    if (householdIndex === -1) {
+        throw new Error('Domicílio não encontrado para atualizar.');
+    }
+
+    // Combina os dados antigos com os novos, mantendo o ID original
+    const updatedHousehold = { ...cityData[householdIndex], ...householdData, id: id };
+
+    cityData[householdIndex] = updatedHousehold;
+    return updatedHousehold;
 };
 
+/**
+ * Deleta um domicílio do "banco de dados".
+ */
 const deleteHousehold = (id, appId) => {
-    if (datasets[appId]) {
-        const initialLength = datasets[appId].length;
-        datasets[appId] = datasets[appId].filter(h => h.id !== id);
-        return initialLength > datasets[appId].length;
+    const cityData = householdsData[appId];
+    if (!cityData) {
+        throw new Error('Cidade não encontrada');
     }
-    return false;
+
+    const initialLength = cityData.length;
+    householdsData[appId] = cityData.filter(h => h.id !== id);
+
+    return householdsData[appId].length < initialLength;
 };
 
+/**
+ * Adiciona uma anotação a um domicílio.
+ * A função agora recebe o ID do DOMICÍLIO.
+ */
 const addMemberNote = (householdId, noteData, appId) => {
-    const db = getDb(appId);
-    const household = db.find(h => h.id === householdId);
-    if (!household) {
-        throw new Error('Domicílio não encontrado.');
-    }
-    const newNote = { ...noteData, id: `note-${Date.now()}`, createdAt: new Date().toISOString() };
-    if (!household.memberNotes) {
-        household.memberNotes = [];
-    }
-    household.memberNotes.unshift(newNote);
+    const household = getHouseholdById(householdId, appId); // Reutiliza a função de busca
+
+    // Gera um ID para a nova anotação no formato "note-itz-1-1"
+    const householdNumericId = household.id.split('-').pop();
+    const maxNoteNumericId = household.memberNotes.map(n => parseInt(n.id.split('-').pop())).reduce((max, id) => Math.max(max, id), 0);
+    const newNoteId = `note-${appId}-${householdNumericId}-${maxNoteNumericId + 1}`;
+
+    const newNote = {
+        id: newNoteId,
+        memberName: noteData.memberName, // O nome do membro deve vir no corpo da requisição
+        note: noteData.note,
+        files: [],
+        createdAt: new Date().toISOString(),
+        createdBy: noteData.createdBy // O autor também deve vir na requisição
+    };
+
+    household.memberNotes.push(newNote);
     return newNote;
 };
 
+/**
+ * Deleta uma anotação de um domicílio.
+ * Recebe o ID do domicílio e o ID da anotação.
+ */
 const deleteMemberNote = (householdId, noteId, appId) => {
-    const db = getDb(appId);
-    const household = db.find(h => h.id === householdId);
-    if (household && household.memberNotes) {
-        const initialLength = household.memberNotes.length;
-        household.memberNotes = household.memberNotes.filter(note => note.id !== noteId);
-        return initialLength > household.memberNotes.length;
+    const household = getHouseholdById(householdId, appId);
+
+    const initialLength = household.memberNotes.length;
+    household.memberNotes = household.memberNotes.filter(n => n.id !== noteId);
+
+    if (household.memberNotes.length >= initialLength) {
+        throw new Error('Anotação não encontrada.');
     }
-    return false;
+
+    return true; // Sucesso
 };
 
 
-module.exports = {
+export default {
     getHouseholds,
     getHouseholdById,
     addHousehold,

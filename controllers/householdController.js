@@ -1,5 +1,6 @@
-const householdService = require('../services/householdService');
+import householdService from '../services/householdService.js';
 
+// Funções de domicílio (permanecem iguais)
 const getAllHouseholds = (req, res) => {
     try {
         const households = householdService.getHouseholds(req.query);
@@ -45,49 +46,56 @@ const deleteHousehold = (req, res) => {
     try {
         const { id } = req.params;
         const { appId } = req.query;
-        const success = householdService.deleteHousehold(id, appId);
-        if (success) {
-            res.status(204).send();
-        } else {
-            throw new Error('Erro ao deletar domicílio.');
-        }
+        householdService.deleteHousehold(id, appId);
+        res.status(204).send();
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
 };
 
-const addNoteToMember = (req, res) => {
+
+// --- FUNÇÕES DE ANOTAÇÕES CORRIGIDAS ---
+
+/**
+ * Adiciona uma nota a um domicílio, não mais a um membro.
+ */
+const addNoteToHousehold = (req, res) => {
     try {
-        const { id } = req.params;
+        // Extrai o ID do domicílio da URL, conforme definido na nova rota
+        const { householdId } = req.params;
         const { appId } = req.query;
-        const newNote = householdService.addMemberNote(id, req.body, appId);
+
+        // O corpo da requisição (req.body) deve conter { memberName, note, createdBy }
+        const newNote = householdService.addMemberNote(householdId, req.body, appId);
         res.status(201).json(newNote);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
-}
+};
 
-const deleteNoteFromMember = (req, res) => {
+/**
+ * Deleta uma nota de um domicílio.
+ */
+const deleteNoteFromHousehold = (req, res) => {
     try {
-        const { id, noteId } = req.params;
+        // Extrai ambos os IDs da URL
+        const { householdId, noteId } = req.params;
         const { appId } = req.query;
-        const success = householdService.deleteMemberNote(id, noteId, appId);
-        if (success) {
-            res.status(204).send();
-        } else {
-            throw new Error('Anotação não encontrada.');
-        }
+
+        householdService.deleteMemberNote(householdId, noteId, appId);
+        res.status(204).send();
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
-}
+};
 
-module.exports = {
+// Exporta todas as funções, incluindo as renomeadas
+export default {
     getAllHouseholds,
     getHouseholdById,
     createHousehold,
     updateHousehold,
     deleteHousehold,
-    addNoteToMember,
-    deleteNoteFromMember
+    addNoteToHousehold,       // Função corrigida e renomeada
+    deleteNoteFromHousehold   // Função corrigida e renomeada
 };

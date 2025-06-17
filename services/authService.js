@@ -1,30 +1,22 @@
-const fs = require('fs');
-const path = require('path');
-
-let users = [];
-try {
-    users = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/mockUsers.json'), 'utf8'));
-} catch (error) {
-    console.error("Erro ao carregar mockUsers.json:", error);
-}
+import users from '../data/mockUsers.json' with { type: 'json' };
 
 const login = (cpf, password) => {
     const user = users.find(u => u.cpf === cpf && u.password === password);
     if (!user) {
-        throw new Error('CPF ou senha incorretos.');
+        throw new Error('Invalid credentials');
     }
-    const { password: userPassword, ...userToReturn } = user;
-    return userToReturn;
+    return { id: user.id, name: user.name, role: user.role };
 };
 
 const requestPasswordReset = (identifier) => {
-    const user = users.find(u => u.email === identifier || u.phone === identifier);
-    // Em uma aplicação real, aqui seria enviado um e-mail/SMS.
-    // Como é um mock, sempre retornamos sucesso para não expor informações.
-    return 'Se as informações estiverem corretas, um link para redefinição de senha foi enviado.';
+    const user = users.find(u => u.cpf === identifier || u.email === identifier);
+    if (!user) {
+        throw new Error('User not found');
+    }
+    return `Password reset link sent to the registered email for user ${user.name}.`;
 };
 
-module.exports = {
+export default {
     login,
     requestPasswordReset,
 };
