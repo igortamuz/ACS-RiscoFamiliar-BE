@@ -6,24 +6,42 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const usersPath = path.join(__dirname, '..', 'data', 'mockUsers.json');
-const users = JSON.parse(fs.readFileSync(usersPath, 'utf8'));
+
+
+const getUsers = () => {
+    try {
+        const usersData = fs.readFileSync(usersPath, 'utf8');
+        return JSON.parse(usersData);
+    } catch (error) {
+        console.error("Falha ao ler ou parsear o arquivo de usuários:", error);
+        throw new Error("Erro interno ao acessar os dados de usuário.");
+    }
+};
 
 const login = (cpf, password) => {
+    const users = getUsers();
     const user = users.find(u => u.cpf === cpf && u.password === password);
+
     if (!user) {
         throw new Error('Invalid credentials');
     }
-    // Boa prática: não retorne a senha na resposta da API
+
     const { password: _, ...userWithoutPassword } = user;
     return userWithoutPassword;
 };
 
 const requestPasswordReset = (identifier) => {
+    const users = getUsers(); 
     const user = users.find(u => u.cpf === identifier || u.email === identifier);
+
     if (!user) {
         throw new Error('User not found');
     }
-    return `Password reset link sent to the registered email for user ${user.name}.`;
+
+    return {
+        message: `Password reset link sent to the registered email for user ${user.name}.`,
+        user: { name: user.name, email: user.email }
+    };
 };
 
 export default {
